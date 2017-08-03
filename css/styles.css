@@ -6,3 +6,8 @@ linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent
 linear-gradient(#eee .1em, transparent .1em);
 background-size: 100% 1.2em;
 }
+
+#box{
+width: 50%;
+padding-left: 25%;
+}
