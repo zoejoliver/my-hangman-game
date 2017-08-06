@@ -6,10 +6,7 @@ var wordsArray = ['dog', 'cat', 'cow', 'pig'];
 var answerWord;
 var char;
 var answerArray = [];
-
-var guessCount = 0;
-var maxGuess = 5;
-
+var hangmanState = 0;
 
 //draw all underscores first
 function initialDisplay(){
@@ -43,11 +40,17 @@ function setLetter(x) {
       remainingLetters -= 1;
     }
   }
-  if (remainingLetters == 0){
+  if (remainingLetters === 0){
     document.getElementById('wrongGuess').innerHTML = "Congratulations! You guessed the word";
   }
   else{
+    if(answerWord.indexOf(x) < 0){
     document.getElementById('wrongGuess').innerHTML += x;
+    drawSequence[hangmanState ++]();
+    }
+    if (hangmanState === drawSequence.length){
+      alert("You Lose");
+    }
   }
   document.getElementById("answer-word").innerHTML = answerArray.join(" ");
   char = '';
@@ -65,4 +68,28 @@ function playAgain(){
   answerArray = [];
   initialDisplay();
   document.getElementById("wrongGuess").innerHTML = ''
+  hangmanState = 0;
+  $('.body-part').remove();
+}
+
+var drawSequence = [drawHead, drawTorso, drawLeftArm, drawRightArm, drawLeftLeg, drawRightLeg];
+
+function drawHead(){
+  $('.drawArea').append($('<div/>').addClass("body-part head"));
+}
+function drawTorso(){
+  $('.drawArea').append($('<div/>').addClass("body-part armbox").append($('<div/>').addClass("body-part torso")));
+  $('.drawArea').append($('<div/>').addClass("body-part legbox").append($('<div/>').addClass("body-part pelvis")));
+}
+function drawLeftArm(){
+  $('.armbox').prepend($('<div/>').addClass("body-part leftarm"));
+}
+function drawRightArm(){
+  $('.armbox').prepend($('<div/>').addClass("body-part rightarm"));
+}
+function drawLeftLeg(){
+  $('.legbox').prepend($('<div/>').addClass("body-part leftleg"));
+}
+function drawRightLeg(){
+  $('.legbox').prepend($('<div/>').addClass("body-part rightleg"));
 }

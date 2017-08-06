@@ -8,15 +8,26 @@
 
     <body>
       <h1>Hangman Game</h1>
-      <h2>Guess a letter</h2>
+      <h2>Click letters below to guess the animal</h2>
 
+      <div class="hangmanContainer">
+      <div class="drawArea"></div>
+      </div>
+
+<div class="letterStuff">
   <div id = "answer-word"></div>
   <h3 id = "wrongGuess"></h3>
+</div>
 
+<div>
   <div id = "box"></div>
+</div>
 
+<div>
 <input type= "button" value="Reveal Answer" onClick= "showAnswer()"/>
 <input type= "button" value="Play Again" onClick= "playAgain()"/>
+</div>
+
 
 
         <script src= "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
