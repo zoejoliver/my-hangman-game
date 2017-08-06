@@ -1,46 +1,57 @@
 
+ //alphabet buttons
 var letterButton = '';
-var resultDisplay = '';
-var letter;
-var words = ['dog', 'cat', 'rabbit', 'pig'];
-var guessWord;
-var result = '';
+var resultDisplay = ''; //underscores for letters mmm
+var wordsArray = ['dog', 'cat', 'cow', 'pig'];
+var answerWord;
+var char;
+var numChar;
+var result = [];
+var newResult = [];
+var answerArray = [];
 
-//generate random word to guess
-function chooseWord(){
-    guessWord = words[Math.floor(Math.random() * (words.length))];
-    return guessWord;
+var guessCount = 0;
+var maxGuess = 5;
+
+
+//draw all underscores first
+function initialDisplay(){
+  answerWord = wordsArray[Math.floor(Math.random() * (wordsArray.length))];
+  answerArray = [];
+
+  for (var i = 0; i<answerWord.length; i++){
+    answerArray[i] = "_";
+  }
+  document.getElementById('answer-word').innerHTML = answerArray.join(" ");
 }
+initialDisplay();
 
-//show underscore for each letter of guessWord
-function answerDisplay(guessWord){
-      for (i=0; i<guessWord.length; i++){
-        result += '_ ';
-      }
-      return result;
-      resultDisplay += '<div>' + result + '</div>';
+
+for (var i = 65; 90 >= i; i++) {// A-65, Z-90
+  char = String.fromCharCode(i).toLowerCase();
+  letterButton += '<button onclick="setLetter(\'' + char + '\');">' + char + '</button>';
 }
+document.getElementById('box').innerHTML = letterButton;
 
-//when correct letter is guessed (correctLetter) change underscore at correct place to letter
-function revealCorrect(place, correctLetter, result){
-  return result.substr(0, place) + correctLetter + result.substr(place + 1, result.length);
-}
-
-//need function to take button press (letter) as input to check match with guessWord
-//from a(65) to z(90)
-function showAlphabet(){
-    for (var i=65; 90 >= i; i++){
-//gets letters from character codes
-      var letter = String.fromCharCode(i);
-//each letter in order on button
-      letterButton += '<button>' + letter + '</button>';
-
+function setLetter(x) {
+  //check each letter in answerWord for match
+  for (var i=0; i<answerWord.length; i++){
+    if(answerWord[i] === x){
+      answerArray[i] = x;
     }
-
-    return letterButton;
-
+  }
+  var remainingLetters = answerArray.length;
+  for(var i=0; i<answerArray.length; i++){
+    if (answerArray[i] !== '_'){
+      remainingLetters -= 1;
+    }
+  }
+  if (remainingLetters == 0){
+    document.getElementById('wrongGuess').innerHTML = "Congratulations! You guessed the word";
+  }
+  else{
+    document.getElementById('wrongGuess').innerHTML += x;
+  }
+  document.getElementById("answer-word").innerHTML = answerArray.join(" ");
+  char = '';
 }
-
-document.getElementById('box').innerHTML = showAlphabet();
-
-document.getElementById('answerWord').innerHTML = answerDisplay(chooseWord());
