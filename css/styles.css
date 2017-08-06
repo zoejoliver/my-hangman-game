@@ -18,11 +18,13 @@ padding: 20px;
 background-size: auto;
 }
 
-
 #answer-word{
   font-size: 4rem;
-
 }
+#wrongGuess{
+  
+}
+
 button{
   font-size: 1.7rem;
   border-radius: 10px;
@@ -38,7 +40,7 @@ h1{
   font-size: 4rem;
 }
 h2{
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 h3{
   font-size: 2rem;
@@ -46,18 +48,17 @@ h3{
 
 .hangmanContainer{
   width:50%;
-
   float:right;
 }
 
 .letterStuff{
   width:50%;
-
 }
 
 .drawArea{
-  
-
+width: 200px;
+height: 200px;
+text-align: center;
 }
 
 .head{
@@ -112,6 +113,30 @@ background:#000;
   height: 10px;
   background:#000;
 }
+
+.topLine{
+  width: 108px;
+  height:5px;
+  background: black;
+}
+.bottomLine{
+  width: 150px;
+  height:5px;
+  background: black;
+}
+.leftLine{
+  width: 5px;
+  height:200px;
+  background: black;
+  float:left;
+}
+.rope{
+  margin: auto;
+  width: 5px;
+  height:25px;
+  background: grey;
+}
+
 input{
   font-size: 1.2rem;
   border-radius: 10px;

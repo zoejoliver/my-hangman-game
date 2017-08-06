@@ -49,7 +49,7 @@ function setLetter(x) {
     drawSequence[hangmanState ++]();
     }
     if (hangmanState === drawSequence.length){
-      alert("You Lose");
+      document.getElementById('wrongGuess').innerHTML = "Sorry, you lose";
     }
   }
   document.getElementById("answer-word").innerHTML = answerArray.join(" ");
@@ -67,7 +67,7 @@ function playAgain(){
   answerWord = '';
   answerArray = [];
   initialDisplay();
-  document.getElementById("wrongGuess").innerHTML = ''
+  document.getElementById("wrongGuess").innerHTML = '. . . '
   hangmanState = 0;
   $('.body-part').remove();
 }
