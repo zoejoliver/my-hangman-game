@@ -1,4 +1,3 @@
-$(document).ready(function(){
  //alphabet buttons
 var letterButton = '';
 var resultDisplay = ''; //underscores for letters mmm
@@ -99,4 +98,4 @@ function drawLeftLeg(){
 function drawRightLeg(){
   $('.legbox').prepend($('<div/>').addClass("body-part rightleg"));
 }
-});
+
