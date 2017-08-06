@@ -2,11 +2,15 @@
  //alphabet buttons
 var letterButton = '';
 var resultDisplay = ''; //underscores for letters mmm
-var wordsArray = ['dog', 'cat', 'cow', 'pig'];
+var wordsArray = ['dog', 'cat', 'rabbit', 'lion', 'tiger', 'llama', 'hyena',
+                  'elk', 'chimpanzee', 'gorilla', 'bear', 'elephant', 'rhino'];
 var answerWord;
 var char;
 var answerArray = [];
 var hangmanState = 0;
+
+var drawSequence = [drawHead, drawTorso, drawLeftArm, drawRightArm, drawLeftLeg, drawRightLeg];
+
 
 //draw all underscores first
 function initialDisplay(){
@@ -46,7 +50,7 @@ function setLetter(x) {
   else{
     if(answerWord.indexOf(x) < 0){
     document.getElementById('wrongGuess').innerHTML += x;
-    drawSequence[hangmanState ++]();
+    drawSequence[hangmanState++]();
     }
     if (hangmanState === drawSequence.length){
       document.getElementById('wrongGuess').innerHTML = "Sorry, you lose";
@@ -72,7 +76,6 @@ function playAgain(){
   $('.body-part').remove();
 }
 
-var drawSequence = [drawHead, drawTorso, drawLeftArm, drawRightArm, drawLeftLeg, drawRightLeg];
 
 function drawHead(){
   $('.drawArea').append($('<div/>').addClass("body-part head"));
@@ -80,12 +83,15 @@ function drawHead(){
 function drawTorso(){
   $('.drawArea').append($('<div/>').addClass("body-part armbox").append($('<div/>').addClass("body-part torso")));
   $('.drawArea').append($('<div/>').addClass("body-part legbox").append($('<div/>').addClass("body-part pelvis")));
+
 }
 function drawLeftArm(){
   $('.armbox').prepend($('<div/>').addClass("body-part leftarm"));
+
 }
 function drawRightArm(){
   $('.armbox').prepend($('<div/>').addClass("body-part rightarm"));
+
 }
 function drawLeftLeg(){
   $('.legbox').prepend($('<div/>').addClass("body-part leftleg"));

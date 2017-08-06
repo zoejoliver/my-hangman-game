@@ -8,21 +8,17 @@ linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent
 linear-gradient(#eee .1em, transparent .1em);
 background-size: 100% 1.5rem;
 font-family: "Palatino Linotype", "Book Antiqua", serif;
-align-items: center;
 }
 
 #box{
-margin-top: 100px;
+margin-top:100px;
+margin-bottom: 20px;
 background-color: silver;
 padding: 20px;
-background-size: auto;
 }
 
 #answer-word{
-  font-size: 4rem;
-}
-#wrongGuess{
-  
+  font-size: 3rem;
 }
 
 button{
@@ -47,41 +43,46 @@ h3{
 }
 
 .hangmanContainer{
-  width:50%;
-  float:right;
+  float: right;
+  width: 40%;
+  text-align: center;
 }
 
 .letterStuff{
-  width:50%;
+  width:60%;
+
 }
 
 .drawArea{
 width: 200px;
 height: 200px;
-text-align: center;
+text-align:center;
+background-color:inherit;
+
 }
 
 .head{
 margin: auto;
-height: 30px;
-width: 30px;
-border-radius:15px;
+height: 40px;
+width: 40px;
+border-radius:20px;
 background:#000;
 }
 .armbox{
-  margin: auto;
-  width: 100px;
+  margin:auto;
+  width: 80px;
+  padding-top: 0.5px;
 }
 .leftarm{
-  float:left;
+  float: left;
   height: 10px;
-  width: 45px;
+  width: 40px;
   background:#000;
 }
 .rightarm{
   float:right;
   height: 10px;
-  width: 45px;
+  width: 40px;
   background:#000;
 }
 .torso{
@@ -94,9 +95,10 @@ background:#000;
   margin:auto;
   width: 30px;
   height: 60px;
+  padding: 0.05px;
 }
 .leftleg{
-  float:left;
+  float: left;
   height: 60px;
   width: 10px;
   background:#000;
