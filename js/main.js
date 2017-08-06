@@ -1,4 +1,4 @@
-$(function(){
+$(document).ready(function(){
  //alphabet buttons
 var letterButton = '';
 var resultDisplay = ''; //underscores for letters mmm
