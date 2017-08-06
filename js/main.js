@@ -5,9 +5,6 @@ var resultDisplay = ''; //underscores for letters mmm
 var wordsArray = ['dog', 'cat', 'cow', 'pig'];
 var answerWord;
 var char;
-var numChar;
-var result = [];
-var newResult = [];
 var answerArray = [];
 
 var guessCount = 0;
@@ -54,4 +51,18 @@ function setLetter(x) {
   }
   document.getElementById("answer-word").innerHTML = answerArray.join(" ");
   char = '';
+}
+
+function showAnswer(){
+  for(var j = 0; j<answerWord.length; j++){
+    answerArray[j] = answerWord[j];
+  }
+  document.getElementById("answer-word").innerHTML = answerArray.join(" ");
+}
+
+function playAgain(){
+  answerWord = '';
+  answerArray = [];
+  initialDisplay();
+  document.getElementById("wrongGuess").innerHTML = ''
 }
